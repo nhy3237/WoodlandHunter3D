@@ -34,9 +34,10 @@ public class InputCenter : MonoBehaviour
     {
         if(!archerPlayerController.ISJUMPING)
         {
+            Debug.Log("jump");
             archerPlayerController.ISJUMPING = true;
+            archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Jump);
         }
 
-        archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Jump);
     }
 }

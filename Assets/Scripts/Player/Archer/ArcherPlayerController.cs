@@ -14,7 +14,7 @@ public class ArcherPlayerController : MonoBehaviour
     public float speed = 1f;
     public float rotationSpeed = 0.5f; // 회전 속도
     public float jumpPower = 10;
-    private bool IsJumping = false;
+    public bool IsJumping = false;
 
     private Vector3 originPos;
 

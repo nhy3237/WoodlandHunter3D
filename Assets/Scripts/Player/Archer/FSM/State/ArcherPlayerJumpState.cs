@@ -15,12 +15,15 @@ public class ArcherPlayerJumpState : ArcherPlayerState
 
     public void Execute()
     {
+        player.animator.SetTrigger("Jump");
+        Debug.Log("jump state in");
+        player.rigid.AddForce(Vector3.up * player.jumpPower, ForceMode.Impulse);
 
     }
 
     public void OnStateEnter()
     {
-        player.rigid.AddForce(Vector3.up * player.jumpPower, ForceMode.Impulse);
+        
     }
 
     public void OnStateExit()
