@@ -78220,7 +78220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1558969834}
   m_Layer: 0
-  m_Name: Map
+  m_Name: BasicMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
