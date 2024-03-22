@@ -11,14 +11,14 @@ public class InputCenter : MonoBehaviour
     private void Start()
     {
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
-        inputHandler.OnPlayerDashInput += ChangeDashState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
+
     }
 
     void ChangeIdleState()
     {
-        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Idle);
+        archerPlayerController.stateMachine.ChangeState(new ArcherPlayerIdleState(archerPlayerController.animator));
     }
 
     void ChangeWalkState()
@@ -26,13 +26,9 @@ public class InputCenter : MonoBehaviour
         archerPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
         archerPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
 
-        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Walk);
+        archerPlayerController.stateMachine.ChangeState(new ArcherPlayerWalkState(archerPlayerController.animator));
     }
 
-    void ChangeDashState()
-    {
-        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Run);
-    }
     void ChangeJumpState()
     {
         
@@ -40,7 +36,7 @@ public class InputCenter : MonoBehaviour
         {
             Debug.Log("jump");
             archerPlayerController.ISJUMPING = true;
-            archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Jump);
+            archerPlayerController.stateMachine.ChangeState(new ArcherPlayerJumpState(archerPlayerController.animator));
 
         }
 

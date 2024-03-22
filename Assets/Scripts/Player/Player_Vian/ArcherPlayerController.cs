@@ -6,10 +6,12 @@ public class ArcherPlayerController : MonoBehaviour
 {
 
     [Header("플레이어 상태 기계")]
-    [SerializeField] public ArcherPlayerStateMachine archerPlayerStateMachine;
+    //[SerializeField] public ArcherPlayerStateMachine archerPlayerStateMachine;
+    public StateMachine<ArcherPlayerController> stateMachine;
+
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public Animator animator;
-    [SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
+    //[SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
 
     public float jumpPower = 2;
     public bool IsJumping = false;
@@ -40,15 +42,15 @@ public class ArcherPlayerController : MonoBehaviour
     void Start()
     {
         originPos = transform.position;
-        collisionWithFloor.OnCollision += FloorCollisionHandler;
+        //collisionWithFloor.OnCollision += FloorCollisionHandler;
+
+        stateMachine = new StateMachine<ArcherPlayerController>();
+        stateMachine.Setup(this, new ArcherPlayerIdleState(animator));
     }
 
     void FixedUpdate()
     {
-        if(archerPlayerStateMachine.curState!=null)
-        {
-            archerPlayerStateMachine.curState.Execute();
-        }
+        stateMachine.Execute();
     }
 
     public void MoveInput()
