@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public enum PlayerEnum { Idle, Walk, Run, Jump, Dash, MeleeAttack, RangedAttack, Die }
+public enum ArcherPlayerEnum { Idle, Walk, Run, Jump, MeleeAttack, RangedAttack, Die }
 
 public class ArcherPlayerStateMachine : MonoBehaviour
 {
@@ -11,26 +11,25 @@ public class ArcherPlayerStateMachine : MonoBehaviour
     [SerializeField] public ArcherPlayerController playerController;
     [HideInInspector] public ArcherPlayerState curState;
 
-    public Dictionary<PlayerEnum, ArcherPlayerState> playerStateDictionary;
+    public Dictionary<ArcherPlayerEnum, ArcherPlayerState> playerStateDictionary;
 
     private void Awake()
     {
-        playerStateDictionary = new Dictionary<PlayerEnum, ArcherPlayerState>
+        playerStateDictionary = new Dictionary<ArcherPlayerEnum, ArcherPlayerState>
         {
-            {PlayerEnum.Idle, new ArcherPlayerIdleState(this) },
-            {PlayerEnum.Walk, new ArcherPlayerWalkState(this) },
-            {PlayerEnum.Jump, new ArcherPlayerJumpState(this) },
-            {PlayerEnum.Dash, new ArcherPlayerDashState(this) }
+            {ArcherPlayerEnum.Idle, new ArcherPlayerIdleState(this) },
+            {ArcherPlayerEnum.Walk, new ArcherPlayerWalkState(this) },
+            {ArcherPlayerEnum.Jump, new ArcherPlayerJumpState(this) }
         };
 
-        if (playerStateDictionary.TryGetValue(PlayerEnum.Idle, out ArcherPlayerState newState))
+        if (playerStateDictionary.TryGetValue(ArcherPlayerEnum.Idle, out ArcherPlayerState newState))
         {
             curState = newState;
             curState.OnStateEnter();
         }
     }
 
-    public void ChangeState(PlayerEnum newStateType)
+    public void ChangeState(ArcherPlayerEnum newStateType)
     {
         if (curState == null)
         {

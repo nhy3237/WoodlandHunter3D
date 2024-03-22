@@ -18,25 +18,27 @@ public class InputCenter : MonoBehaviour
 
     void ChangeIdleState()
     {
-        archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Idle);
+        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Idle);
     }
 
     void ChangeWalkState()
     {
-        archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Walk);
+        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Walk);
     }
 
     void ChangeDashState()
     {
-        archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Run);
+        archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Run);
     }
     void ChangeJumpState()
     {
-        if(!archerPlayerController.ISJUMPING)
+        
+        if (!archerPlayerController.ISJUMPING)
         {
             Debug.Log("jump");
             archerPlayerController.ISJUMPING = true;
-            archerPlayerController.archerPlayerStateMachine.ChangeState(PlayerEnum.Jump);
+            archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Jump);
+
         }
 
     }

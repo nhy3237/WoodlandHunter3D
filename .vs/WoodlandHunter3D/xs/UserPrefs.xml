@@ -1,12 +1,20 @@
 ﻿<Properties StartupConfiguration="{C7773DD6-04EF-3AB6-E0F5-C55ECB7F8A3C}|">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fb7ac98a-6781-4391-95fa-dfd1d7be1e08" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resource/Monster/Suriyun/Scripts/Camera Scripts/MouseOrbitImproved.cs">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4b4340ed-b21d-40d2-a701-b2b3736b90cc" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/FSM/PlayerState.cs">
     <Files>
-      <File FileName="Assets/Resource/Monster/Suriyun/Scripts/Camera Scripts/MouseOrbitImproved.cs" Line="6" Column="2" />
-      <File FileName="Assets/Resource/Monster/Suriyun/Scripts/AnimatorController.cs" Line="7" Column="25" />
+      <File FileName="Assets/Resource/Monster/Suriyun/Scripts/Camera Scripts/MouseOrbitImproved.cs" />
+      <File FileName="Assets/Resource/Monster/Suriyun/Scripts/AnimatorController.cs" />
+      <File FileName="Assets/Scripts/Player/Input/InputHandler.cs" />
+      <File FileName="Assets/Scripts/Player/Archer/NotifyCollisionToPlayer.cs" />
+      <File FileName="Assets/Scripts/Player/Input/InputCenter.cs" />
+      <File FileName="Assets/Scripts/Player/FSM/ArcherPlayerStateMachine.cs" />
+      <File FileName="Assets/Scripts/Player/FSM/PlayerState.cs" Line="5" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,13 +30,19 @@
                   </Node>
                 </Node>
               </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="Player" expanded="True">
+                  <Node name="Archer" expanded="True" />
+                  <Node name="FSM" expanded="True">
+                    <Node name="PlayerState.cs" selected="True" />
+                  </Node>
+                  <Node name="Input" expanded="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

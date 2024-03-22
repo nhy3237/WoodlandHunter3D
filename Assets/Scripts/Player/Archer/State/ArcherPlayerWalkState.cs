@@ -13,18 +13,18 @@ public class ArcherPlayerWalkState : ArcherPlayerState
         player = playerStateMachine.playerController;
     }
 
-    public void Execute()
+    public void OnStateEnter()
     {
-
+        player.animator.SetBool("IsWalking", true);
     }
 
-    public void OnStateEnter()
+    public void Execute()
     {
 
     }
 
     public void OnStateExit()
     {
-
+        player.animator.SetBool("IsWalking", false);
     }
 }
