@@ -13,6 +13,8 @@ public class ArcherPlayerWalkState : ArcherPlayerState
         player = playerStateMachine.playerController;
     }
 
+    Vector2 movement;
+
     public void OnStateEnter()
     {
         player.animator.SetBool("IsWalking", true);
@@ -20,6 +22,10 @@ public class ArcherPlayerWalkState : ArcherPlayerState
 
     public void Execute()
     {
+        movement.x = player.animator.GetFloat("XDir");
+        movement.y = player.animator.GetFloat("YDir");
+
+
 
     }
 

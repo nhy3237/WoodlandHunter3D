@@ -11,6 +11,13 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
 
+    Vector2 movement;
+
+    public Vector2 GetMovement()
+    {
+        return movement;
+    }
+
     void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -18,6 +25,9 @@ public class InputHandler : MonoBehaviour
 
         if (horizontalInput != 0 || verticalInput != 0)
         {
+            movement.x = horizontalInput;
+            movement.y = verticalInput;
+
             OnPlayerWalkInput?.Invoke();
 
             if (verticalInput > 0)

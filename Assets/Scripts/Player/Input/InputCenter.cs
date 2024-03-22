@@ -23,6 +23,9 @@ public class InputCenter : MonoBehaviour
 
     void ChangeWalkState()
     {
+        archerPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
+        archerPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
+
         archerPlayerController.archerPlayerStateMachine.ChangeState(ArcherPlayerEnum.Walk);
     }
 
