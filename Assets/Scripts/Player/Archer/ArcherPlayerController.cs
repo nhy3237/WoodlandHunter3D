@@ -45,7 +45,10 @@ public class ArcherPlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if(archerPlayerStateMachine.curState!=null)
+        {
+            archerPlayerStateMachine.curState.Execute();
+        }
     }
 
     public void MoveInput()
