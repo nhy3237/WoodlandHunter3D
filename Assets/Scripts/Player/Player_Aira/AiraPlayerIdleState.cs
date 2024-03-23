@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AiraIdleState : State<PlayerController>
+public class AiraPlayerIdleState : State<AiraPlayerController>
 {
     private Animator animator;
 
-    public AiraIdleState(Animator animator)
+    public AiraPlayerIdleState(Animator animator)
     {
         this.animator = animator;
     }
 
-    public override void Enter(PlayerController entity)
+    public override void Enter(AiraPlayerController entity)
     {
         entity.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         animator.SetBool("IsWalking", false);
     }
 
-    public override void Execute(PlayerController entity)
+    public override void Execute(AiraPlayerController entity)
     {
 
     }
 
-    public override void Exit(PlayerController entity)
+    public override void Exit(AiraPlayerController entity)
     {
     }
 }
