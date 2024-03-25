@@ -61,11 +61,13 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Ranged Attack Ready..");
             OnPlayerRangedAttackReadyInput?.Invoke();
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            Debug.Log("Ranged Attack ");
             OnPlayerRangedAttackInput?.Invoke();
         }
 

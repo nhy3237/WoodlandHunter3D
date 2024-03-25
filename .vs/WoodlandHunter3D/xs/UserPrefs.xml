@@ -3,18 +3,29 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Input/InputCenter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs">
     <Files>
-      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="17" Column="33" />
-      <File FileName="Assets/Scripts/Input/InputCenter.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackReadyState.cs" Line="4" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="10" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="70" Column="1" />
+      <File FileName="Assets/Scripts/Input/InputCenter.cs" Line="69" Column="78" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="18" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" Line="36" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WoodlandHunter3D" selected="True">
-            <Node name="Assets" expanded="True" />
+          <Node name="WoodlandHunter3D">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Input" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Player_Vian" expanded="True">
+                    <Node name="VianState" expanded="True">
+                      <Node name="VianPlayerRangedAttackState.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
