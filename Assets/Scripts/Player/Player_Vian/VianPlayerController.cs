@@ -58,9 +58,15 @@ public class VianPlayerController : MonoBehaviour
 
         if(animator.GetBool("IsMeleeAttacking"))
         {
-
-            meleeAttackParticleSystem.Play();
+            StartCoroutine(PlayPaticle());
         }
+
+    }
+
+    IEnumerator PlayPaticle()
+    {
+        yield return new WaitForSeconds(0.6f);
+        meleeAttackParticleSystem.Play();
     }
 
     public void MoveInput()

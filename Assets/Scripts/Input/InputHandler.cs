@@ -52,7 +52,7 @@ public class InputHandler : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
             Debug.Log("Attack");
 
