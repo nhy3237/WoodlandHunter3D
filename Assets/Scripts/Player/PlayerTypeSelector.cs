@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class PlayerTypeSelector : MonoBehaviour
 {
     public Button AiraPlayerButton;
+    public GameObject AiraPlayer;
+
     public Button VianPlayerButton;
+    public GameObject VianPlayer;
 
     void Start()
     {
@@ -16,11 +19,11 @@ public class PlayerTypeSelector : MonoBehaviour
 
     public void SelectAira()
     {
-        GameManager.instance.SetPlayerType(PlayerType.Aira);
+        GameManager.instance.SetPlayerType(AiraPlayer);
     }
 
     public void SelectVian()
     {
-        GameManager.instance.SetPlayerType(PlayerType.Vian);
+        GameManager.instance.SetPlayerType(VianPlayer);
     }
 }

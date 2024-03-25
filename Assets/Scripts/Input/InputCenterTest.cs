@@ -13,50 +13,35 @@ public class InputCenterTest : MonoBehaviour
 
     void Start()
     {
-        playerController = new AiraPlayerController();
+        GameManager.instance.OnPlayerObjectChanged += UpdatePlayer;
 
-        GameManager.instance.OnPlayerTypeChanged += UpdatePlayerType;
-        
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
-
     }
 
     void OnDestroy()
     {
-        GameManager.instance.OnPlayerTypeChanged -= UpdatePlayerType;    
+        GameManager.instance.OnPlayerObjectChanged -= UpdatePlayer;
     }
 
-    private void UpdatePlayerType(PlayerType playerType)
+    private void UpdatePlayer()
     {
-        selectedPlayerType = playerType;
-
-        switch (selectedPlayerType)
-        {
-            case PlayerType.Aira:
-                playerController = new AiraPlayerController();
-
-                Debug.Log("AiraPlayerController·Î º¯°æ");
-                break;
-            case PlayerType.Vian:
-                // playerController = new VianPlayerController();
-                break;
-        }
+        playerController = GameManager.instance.GetPlayerController();
     }
 
     void ChangeIdleState()
     {
-        playerController.ChangeIdleState();
+        playerController?.ChangeIdleState();
     }
 
     void ChangeWalkState()
     {
-        playerController.ChangeWalkState();
+        playerController?.ChangeWalkState();
     }
 
     void ChangeJumpState()
     {
-        playerController.ChangeJumpState();
+        playerController?.ChangeJumpState();
     }
 }
