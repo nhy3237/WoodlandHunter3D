@@ -26,7 +26,6 @@ public class InputHandler : MonoBehaviour
 
         if (horizontalInput != 0 || verticalInput != 0)
         {
-            Debug.Log("Walking");
             movement.x = horizontalInput;
             movement.y = verticalInput;
 
@@ -55,6 +54,8 @@ public class InputHandler : MonoBehaviour
 
         if(Input.GetMouseButtonDown(1))
         {
+            Debug.Log("Attack");
+
             OnPlayerMeleeAttackInput?.Invoke();
         }
 
