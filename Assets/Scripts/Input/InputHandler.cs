@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static PixelCrushers.DialogueSystem.UnityGUI.GUIProgressBar;
 
 public class InputHandler : MonoBehaviour
 {
@@ -11,6 +10,9 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
     public event PlayerInputHandle OnPlayerMeleeAttackInput;
+    public event PlayerInputHandle OnPlayerRangedAttackReadyInput;
+    public event PlayerInputHandle OnPlayerRangedAttackInput;
+
 
     Vector2 movement;
 
@@ -38,7 +40,7 @@ public class InputHandler : MonoBehaviour
 
             if (verticalInput > 0)
             {
-                
+
             }
         }
         else
@@ -52,13 +54,20 @@ public class InputHandler : MonoBehaviour
         }
 
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Attack");
-
             OnPlayerMeleeAttackInput?.Invoke();
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnPlayerRangedAttackReadyInput?.Invoke();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnPlayerRangedAttackInput?.Invoke();
+        }
 
     }
 }

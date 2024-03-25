@@ -13,7 +13,7 @@ public class VianPlayerRangedAttackState : State<VianPlayerController>
 
     public override void Enter(VianPlayerController entity)
     {
-        animator.SetBool("IsRangedAttackReady", false);
+        animator.SetBool("IsRangeAttacking", true);
     }
 
     public override void Execute(VianPlayerController entity)

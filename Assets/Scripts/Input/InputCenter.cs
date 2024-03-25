@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static PixelCrushers.DialogueSystem.UnityGUI.GUIProgressBar;
 
 public class InputCenter : MonoBehaviour
 {
@@ -14,7 +13,10 @@ public class InputCenter : MonoBehaviour
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerRunInput += ChangeRunState;
+
         inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
+        inputHandler.OnPlayerRangedAttackReadyInput += ChangeRangedAttackReadyState;
+        inputHandler.OnPlayerRangedAttackInput += ChangeRangedAttackState;
     }
 
     void ChangeIdleState()
@@ -32,7 +34,7 @@ public class InputCenter : MonoBehaviour
 
     void ChangeJumpState()
     {
-        
+
         if (!vianPlayerController.ISJUMPING)
         {
             Debug.Log("jump");
@@ -55,4 +57,17 @@ public class InputCenter : MonoBehaviour
     {
         vianPlayerController.stateMachine.ChangeState(new VianPlayerMeleeAttackState(vianPlayerController.animator));
     }
+
+    void ChangeRangedAttackReadyState()
+    {
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackReadyState(vianPlayerController.animator));
+
+    }
+
+    void ChangeRangedAttackState()
+    {
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackState(vianPlayerController.animator));
+
+    }
+
 }

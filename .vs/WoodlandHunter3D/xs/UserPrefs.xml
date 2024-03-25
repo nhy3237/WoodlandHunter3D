@@ -3,31 +3,18 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Input/InputCenter.cs">
     <Files>
-      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerMeleeAttackState.cs" Line="29" Column="30" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" Line="8" Column="27" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackReadyState.cs" Line="9" Column="6" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="9" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="17" Column="33" />
+      <File FileName="Assets/Scripts/Input/InputCenter.cs" Line="7" Column="2" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackReadyState.cs" Line="4" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="10" Column="6" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WoodlandHunter3D" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Input" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="FSM" expanded="True" />
-                  <Node name="Player_Aira" expanded="True" />
-                  <Node name="Player_Vian" expanded="True">
-                    <Node name="VianState" expanded="True" />
-                    <Node name="VianPlayerController.cs" selected="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
+          <Node name="WoodlandHunter3D" selected="True">
+            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>
