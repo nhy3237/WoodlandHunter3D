@@ -14,6 +14,7 @@ public class InputCenter : MonoBehaviour
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerRunInput += ChangeRunState;
+        inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
     }
 
     void ChangeIdleState()
@@ -48,5 +49,10 @@ public class InputCenter : MonoBehaviour
         vianPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
 
         vianPlayerController.stateMachine.ChangeState(new VianPlayerRunState(vianPlayerController.animator));
+    }
+
+    void ChangeMeleeAttackState()
+    {
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerMeleeAttackState(vianPlayerController.animator));
     }
 }

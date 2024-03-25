@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerRunInput;
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
+    public event PlayerInputHandle OnPlayerMeleeAttackInput;
 
     Vector2 movement;
 
@@ -18,7 +19,7 @@ public class InputHandler : MonoBehaviour
         return movement;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -51,6 +52,11 @@ public class InputHandler : MonoBehaviour
             OnPlayerJumpInput?.Invoke();
         }
 
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            OnPlayerMeleeAttackInput?.Invoke();
+        }
 
 
     }
