@@ -60,7 +60,8 @@ public class InputCenter : MonoBehaviour
 
     void ChangeRangedAttackReadyState()
     {
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackReadyState(vianPlayerController.animator));
+        if(!vianPlayerController.animator.GetBool("IsRangedAttackReady"))
+            vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackReadyState(vianPlayerController.animator));
 
     }
 
