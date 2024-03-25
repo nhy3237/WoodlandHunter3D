@@ -5,7 +5,7 @@ using static PixelCrushers.DialogueSystem.UnityGUI.GUIProgressBar;
 
 public class InputCenter : MonoBehaviour
 {
-    [SerializeField] public ArcherPlayerController archerPlayerController;
+    [SerializeField] public VianPlayerController vianPlayerController;
     [SerializeField] public InputHandler inputHandler;
 
     private void Start()
@@ -13,32 +13,40 @@ public class InputCenter : MonoBehaviour
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
-
+        inputHandler.OnPlayerRunInput += ChangeRunState;
     }
 
     void ChangeIdleState()
     {
-        archerPlayerController.stateMachine.ChangeState(new ArcherPlayerIdleState(archerPlayerController.animator));
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerIdleState(vianPlayerController.animator));
     }
 
     void ChangeWalkState()
     {
-        archerPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
-        archerPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
+        vianPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
+        vianPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
 
-        archerPlayerController.stateMachine.ChangeState(new ArcherPlayerWalkState(archerPlayerController.animator));
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerWalkState(vianPlayerController.animator));
     }
 
     void ChangeJumpState()
     {
         
-        if (!archerPlayerController.ISJUMPING)
+        if (!vianPlayerController.ISJUMPING)
         {
             Debug.Log("jump");
-            archerPlayerController.ISJUMPING = true;
-            archerPlayerController.stateMachine.ChangeState(new ArcherPlayerJumpState(archerPlayerController.animator));
+            vianPlayerController.ISJUMPING = true;
+            vianPlayerController.stateMachine.ChangeState(new VianPlayerJumpState(vianPlayerController.animator));
 
         }
 
+    }
+
+    void ChangeRunState()
+    {
+        vianPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
+        vianPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
+
+        vianPlayerController.stateMachine.ChangeState(new VianPlayerRunState(vianPlayerController.animator));
     }
 }

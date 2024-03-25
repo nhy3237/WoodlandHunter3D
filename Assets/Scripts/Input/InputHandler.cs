@@ -7,7 +7,7 @@ public class InputHandler : MonoBehaviour
 {
     public delegate void PlayerInputHandle();
     public event PlayerInputHandle OnPlayerWalkInput;
-    public event PlayerInputHandle OnPlayerDashInput;
+    public event PlayerInputHandle OnPlayerRunInput;
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
 
@@ -25,17 +25,20 @@ public class InputHandler : MonoBehaviour
 
         if (horizontalInput != 0 || verticalInput != 0)
         {
+            Debug.Log("Walking");
             movement.x = horizontalInput;
             movement.y = verticalInput;
 
             OnPlayerWalkInput?.Invoke();
 
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                OnPlayerRunInput?.Invoke();
+            }
+
             if (verticalInput > 0)
             {
-                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-                {
-                    OnPlayerDashInput?.Invoke();
-                }
+                
             }
         }
         else
