@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherPlayerController : MonoBehaviour
+public class VianPlayerController : MonoBehaviour
 {
 
     [Header("플레이어 상태 기계")]
     //[SerializeField] public ArcherPlayerStateMachine archerPlayerStateMachine;
-    public StateMachine<ArcherPlayerController> stateMachine;
+    public StateMachine<VianPlayerController> stateMachine;
 
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public Animator animator;
@@ -44,8 +44,8 @@ public class ArcherPlayerController : MonoBehaviour
         originPos = transform.position;
         //collisionWithFloor.OnCollision += FloorCollisionHandler;
 
-        stateMachine = new StateMachine<ArcherPlayerController>();
-        stateMachine.Setup(this, new ArcherPlayerIdleState(animator));
+        stateMachine = new StateMachine<VianPlayerController>();
+        stateMachine.Setup(this, new VianPlayerIdleState(animator));
     }
 
     void FixedUpdate()

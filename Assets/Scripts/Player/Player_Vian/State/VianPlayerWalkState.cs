@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArcherPlayerWalkState : State<ArcherPlayerController>
+public class VianPlayerWalkState : State<VianPlayerController>
 {
 
     private Animator animator;
 
-    public ArcherPlayerWalkState(Animator animator)
+    public VianPlayerWalkState(Animator animator)
     {
 
         this.animator = animator;
@@ -15,12 +15,12 @@ public class ArcherPlayerWalkState : State<ArcherPlayerController>
 
     Vector3 movement;
 
-    public override void Enter(ArcherPlayerController entity)
+    public override void Enter(VianPlayerController entity)
     {
         animator.SetBool("IsWalking", true);
     }
 
-    public override void Execute(ArcherPlayerController entity)
+    public override void Execute(VianPlayerController entity)
     {
         movement.x = animator.GetFloat("XDir");
         movement.z = animator.GetFloat("YDir");
@@ -29,7 +29,7 @@ public class ArcherPlayerWalkState : State<ArcherPlayerController>
 
     }
 
-    public override void Exit(ArcherPlayerController entity)
+    public override void Exit(VianPlayerController entity)
     {
         animator.SetBool("IsWalking", false);
     }
