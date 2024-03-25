@@ -8,6 +8,8 @@ public class VianPlayerController : MonoBehaviour
     [Header("플레이어 상태 기계")]
     //[SerializeField] public ArcherPlayerStateMachine archerPlayerStateMachine;
     public StateMachine<VianPlayerController> stateMachine;
+    public GameObject meleeAttackParticleObject;
+    private ParticleSystem meleeAttackParticleSystem;
 
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public Animator animator;
@@ -46,11 +48,19 @@ public class VianPlayerController : MonoBehaviour
 
         stateMachine = new StateMachine<VianPlayerController>();
         stateMachine.Setup(this, new VianPlayerIdleState(animator));
+
+        meleeAttackParticleSystem = meleeAttackParticleObject.GetComponent<ParticleSystem>();
     }
 
     void FixedUpdate()
     {
         stateMachine.Execute();
+
+        if(animator.GetBool("IsMeleeAttacking"))
+        {
+
+            meleeAttackParticleSystem.Play();
+        }
     }
 
     public void MoveInput()
