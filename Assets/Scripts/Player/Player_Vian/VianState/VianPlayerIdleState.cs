@@ -13,7 +13,7 @@ public class VianPlayerIdleState : State<VianPlayerController>
 
     public override void Enter(VianPlayerController entity)
     {
-        
+        animator.SetBool("IsWalking", false);
     }
 
     public override void Execute(VianPlayerController entity)

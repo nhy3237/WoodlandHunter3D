@@ -22,9 +22,9 @@ public class VianPlayerRunState : State<VianPlayerController>
     public override void Execute(VianPlayerController entity)
     {
         movement.x = animator.GetFloat("XDir");
-        movement.y = animator.GetFloat("YDir");
+        movement.z = animator.GetFloat("YDir");
 
-        runSpeed = entity.speed * 2;
+        runSpeed = entity.speed * 3;
         entity.transform.Translate(movement * runSpeed * Time.deltaTime);
 
     }

@@ -38117,7 +38117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fddc568d1eac496a87facb47ac640dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vianPlayerController: {fileID: 0}
+  vianPlayerController: {fileID: 709741686}
   inputHandler: {fileID: 458402069}
 --- !u!4 &1424963056
 Transform:

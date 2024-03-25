@@ -31,6 +31,5 @@ public class VianPlayerWalkState : State<VianPlayerController>
 
     public override void Exit(VianPlayerController entity)
     {
-        animator.SetBool("IsWalking", false);
     }
 }
