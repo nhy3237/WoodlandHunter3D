@@ -10,7 +10,7 @@ public class VianPlayerController : MonoBehaviour
     public StateMachine<VianPlayerController> stateMachine;
     public GameObject meleeAttackParticleObject;
     private ParticleSystem meleeAttackParticleSystem;
-
+    public GameObject arrowPrefab;
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public Animator animator;
     //[SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
@@ -59,6 +59,14 @@ public class VianPlayerController : MonoBehaviour
         if(animator.GetBool("IsMeleeAttacking"))
         {
             StartCoroutine(PlayPaticle());
+        }
+
+
+        if(animator.GetBool("IsRangedAttacking"))
+        {
+            //GameObject t_arrow = Instantiate(arrowPrefab);
+            //t_arrow.GetComponent<Rigidbody>().velocity = m_tfArrow.transform.right * 10f;
+
         }
 
     }

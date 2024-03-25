@@ -56,6 +56,7 @@ public class InputCenter : MonoBehaviour
     void ChangeMeleeAttackState()
     {
         vianPlayerController.stateMachine.ChangeState(new VianPlayerMeleeAttackState(vianPlayerController.animator));
+
     }
 
     void ChangeRangedAttackReadyState()

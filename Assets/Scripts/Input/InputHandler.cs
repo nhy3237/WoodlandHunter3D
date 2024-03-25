@@ -59,8 +59,7 @@ public class InputHandler : MonoBehaviour
         {
             OnPlayerMeleeAttackInput?.Invoke();
         }
-
-        if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Ranged Attack Ready..");
             isMouseButtonDown = true;
