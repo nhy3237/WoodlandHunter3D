@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
 
 
     Vector2 movement;
+    public bool isMouseButtonDown = false;
 
     public Vector2 GetMovement()
     {
@@ -59,17 +60,20 @@ public class InputHandler : MonoBehaviour
             OnPlayerMeleeAttackInput?.Invoke();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Ranged Attack Ready..");
+            isMouseButtonDown = true;
             OnPlayerRangedAttackReadyInput?.Invoke();
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else if (isMouseButtonDown && !Input.GetMouseButton(0))
         {
+
+            isMouseButtonDown = false;
             Debug.Log("Ranged Attack ");
             OnPlayerRangedAttackInput?.Invoke();
         }
+
 
     }
 }
