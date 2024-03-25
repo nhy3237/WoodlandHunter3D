@@ -26764,7 +26764,7 @@ GameObject:
   - component: {fileID: 779860789}
   - component: {fileID: 779860788}
   m_Layer: 0
-  m_Name: SlachEffect
+  m_Name: MeleeAttackParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
