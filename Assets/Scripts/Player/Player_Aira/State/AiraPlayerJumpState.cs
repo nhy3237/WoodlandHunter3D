@@ -5,6 +5,7 @@ using UnityEngine;
 public class AiraPlayerJumpState : State<AiraPlayerController>
 {
     private Animator animator;
+    private bool isJumping = false;
 
     public AiraPlayerJumpState(Animator animator)
     {
@@ -13,16 +14,24 @@ public class AiraPlayerJumpState : State<AiraPlayerController>
 
     public override void Enter(AiraPlayerController entity)
     {
-        animator.SetTrigger("Jump");
-        entity.GetComponentInParent<Rigidbody>().AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        if(!isJumping)
+        {
+            animator.SetTrigger("Jump");
+            isJumping = true;
+        }
     }
 
     public override void Execute(AiraPlayerController entity)
     {
-
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            isJumping = false;
+        }
     }
 
     public override void Exit(AiraPlayerController entity)
     {
+        
+
     }
 }

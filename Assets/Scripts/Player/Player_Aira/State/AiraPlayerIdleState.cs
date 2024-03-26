@@ -13,7 +13,7 @@ public class AiraPlayerIdleState : State<AiraPlayerController>
 
     public override void Enter(AiraPlayerController entity)
     {
-        entity.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
+        //entity.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         animator.SetBool("IsWalking", false);
     }
 

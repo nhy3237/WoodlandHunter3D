@@ -43,7 +43,7 @@ public class InputHandler : MonoBehaviour
             OnPlayerIdle?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnPlayerJumpInput?.Invoke();
         }

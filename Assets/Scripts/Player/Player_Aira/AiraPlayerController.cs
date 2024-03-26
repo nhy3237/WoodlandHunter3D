@@ -33,7 +33,6 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
 
     public void ChangeWalkState()
     {
-
         if (animator != null)
         {
             stateMachine.ChangeState(new AiraPlayerWalkState(animator, moveSpeed));
@@ -42,7 +41,6 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
 
     public void ChangeJumpState()
     {
-
         if (animator != null)
         {
             stateMachine.ChangeState(new AiraPlayerJumpState(animator));
