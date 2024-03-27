@@ -22,7 +22,7 @@ public class InputHandler : MonoBehaviour
         return movement;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -59,13 +59,15 @@ public class InputHandler : MonoBehaviour
         {
             OnPlayerMeleeAttackInput?.Invoke();
         }
-        else if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Ranged Attack Ready..");
             isMouseButtonDown = true;
             OnPlayerRangedAttackReadyInput?.Invoke();
         }
-        else if (isMouseButtonDown && !Input.GetMouseButton(0))
+
+        if (isMouseButtonDown && !Input.GetMouseButton(0))
         {
 
             isMouseButtonDown = false;

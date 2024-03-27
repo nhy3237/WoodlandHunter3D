@@ -10,7 +10,7 @@ public class VianPlayerController : MonoBehaviour
     public StateMachine<VianPlayerController> stateMachine;
     public GameObject meleeAttackParticleObject;
     private ParticleSystem meleeAttackParticleSystem;
-    public GameObject arrowPrefab;
+    //public GameObject arrowPrefab;
     [SerializeField] public Rigidbody rigid;
     [SerializeField] public Animator animator;
     //[SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
