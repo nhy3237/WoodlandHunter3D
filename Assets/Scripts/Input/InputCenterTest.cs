@@ -18,6 +18,7 @@ public class InputCenterTest : MonoBehaviour
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
+        inputHandler.OnPlayerAttackInput += ChangeAttackState;
     }
 
     void OnDestroy()
@@ -43,5 +44,10 @@ public class InputCenterTest : MonoBehaviour
     void ChangeJumpState()
     {
         playerController?.ChangeJumpState();
+    }
+
+    void ChangeAttackState()
+    {
+        playerController?.ChangeAttackState();
     }
 }

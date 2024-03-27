@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerDashInput;
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
+    public event PlayerInputHandle OnPlayerAttackInput;
 
     Vector2 movement;
 
@@ -48,7 +49,9 @@ public class InputHandler : MonoBehaviour
             OnPlayerJumpInput?.Invoke();
         }
 
-
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            OnPlayerAttackInput?.Invoke();
+        }
     }
 }

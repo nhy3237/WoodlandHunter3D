@@ -8,6 +8,10 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     public float moveSpeed = 1f;
 
     private StateMachine<AiraPlayerController> stateMachine;
+    private AiraPlayerIdleState idleState;
+    private AiraPlayerWalkState walkState;
+    private AiraPlayerJumpState jumpState;
+    private AiraPlayerAttackState attackState;
     private Animator animator;
 
     void Start()
@@ -15,11 +19,19 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
         animator = transform.parent.GetComponent<Animator>();
 
         stateMachine = new StateMachine<AiraPlayerController>();
-        stateMachine.Setup(this, new AiraPlayerIdleState(animator));
+        idleState = new AiraPlayerIdleState(animator);
+        walkState = new AiraPlayerWalkState(animator, moveSpeed);
+        jumpState = new AiraPlayerJumpState(animator);
+        attackState = new AiraPlayerAttackState(animator);
+        stateMachine.Setup(this, idleState);
     }
 
     private void Update()
     {
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            stateMachine.ChangeState(jumpState);
+        }
         stateMachine.Execute();
     }
 
@@ -27,7 +39,7 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     {
         if (animator != null)
         {
-            stateMachine.ChangeState(new AiraPlayerIdleState(animator));
+            stateMachine.ChangeState(idleState);
         }
     }
 
@@ -35,7 +47,7 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     {
         if (animator != null)
         {
-            stateMachine.ChangeState(new AiraPlayerWalkState(animator, moveSpeed));
+            stateMachine.ChangeState(walkState);
         }
     }
 
@@ -43,7 +55,15 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     {
         if (animator != null)
         {
-            stateMachine.ChangeState(new AiraPlayerJumpState(animator));
+            stateMachine.ChangeState(jumpState);
+        }
+    }
+
+    public void ChangeAttackState()
+    {
+        if(animator != null)
+        {
+            stateMachine.ChangeState(attackState);
         }
     }
 }

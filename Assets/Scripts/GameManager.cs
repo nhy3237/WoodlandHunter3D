@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (selectedPlayerObject != null)
         {
-            selectedPlayerObject.SetActive(false);
+           // selectedPlayerObject.SetActive(false);
         }
         selectedPlayerObject = playerObject;
         selectedPlayerObject.SetActive(true);
