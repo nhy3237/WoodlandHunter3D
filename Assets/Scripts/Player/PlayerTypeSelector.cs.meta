@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 79d33d87f21d7d842a6175dbb58291f9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - AiraPlayerButton: {fileID: 4958214147281542291, guid: a4a6f9608b9ddb24ebaab5088b72dbeb, type: 3}
+  - VianPlayerButton: {fileID: 7726093460542538095, guid: e4a6c0d993a6c7241a91fb2801dac889, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

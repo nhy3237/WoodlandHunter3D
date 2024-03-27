@@ -9,10 +9,14 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerRunInput;
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
+<<<<<<< HEAD
     public event PlayerInputHandle OnPlayerMeleeAttackInput;
     public event PlayerInputHandle OnPlayerRangedAttackReadyInput;
     public event PlayerInputHandle OnPlayerRangedAttackInput;
 
+=======
+    public event PlayerInputHandle OnPlayerAttackInput;
+>>>>>>> develop
 
     Vector2 movement;
     public bool isMouseButtonDown = false;
@@ -49,11 +53,12 @@ public class InputHandler : MonoBehaviour
             OnPlayerIdle?.Invoke();
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnPlayerJumpInput?.Invoke();
         }
 
+<<<<<<< HEAD
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -76,5 +81,11 @@ public class InputHandler : MonoBehaviour
         }
 
 
+=======
+        if(Input.GetMouseButtonDown(0))
+        {
+            OnPlayerAttackInput?.Invoke();
+        }
+>>>>>>> develop
     }
 }
