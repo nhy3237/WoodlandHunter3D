@@ -9,19 +9,17 @@ public class InputHandler : MonoBehaviour
     public event PlayerInputHandle OnPlayerRunInput;
     public event PlayerInputHandle OnPlayerIdle;
     public event PlayerInputHandle OnPlayerJumpInput;
-<<<<<<< HEAD
+
     public event PlayerInputHandle OnPlayerMeleeAttackInput;
     public event PlayerInputHandle OnPlayerRangedAttackReadyInput;
     public event PlayerInputHandle OnPlayerRangedAttackInput;
 
-=======
     public event PlayerInputHandle OnPlayerAttackInput;
->>>>>>> develop
 
-    Vector2 movement;
+    Vector3 movement;
     public bool isMouseButtonDown = false;
 
-    public Vector2 GetMovement()
+    public Vector3 GetMovement()
     {
         return movement;
     }
@@ -34,7 +32,7 @@ public class InputHandler : MonoBehaviour
         if (horizontalInput != 0 || verticalInput != 0)
         {
             movement.x = horizontalInput;
-            movement.y = verticalInput;
+            movement.z = verticalInput;
 
             OnPlayerWalkInput?.Invoke();
 
@@ -58,8 +56,6 @@ public class InputHandler : MonoBehaviour
             OnPlayerJumpInput?.Invoke();
         }
 
-<<<<<<< HEAD
-
         if (Input.GetMouseButtonDown(1))
         {
             OnPlayerMeleeAttackInput?.Invoke();
@@ -67,6 +63,10 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            // aria
+            OnPlayerAttackInput?.Invoke();
+
+            // vian
             Debug.Log("Ranged Attack Ready..");
             isMouseButtonDown = true;
             OnPlayerRangedAttackReadyInput?.Invoke();
@@ -80,12 +80,5 @@ public class InputHandler : MonoBehaviour
             OnPlayerRangedAttackInput?.Invoke();
         }
 
-
-=======
-        if(Input.GetMouseButtonDown(0))
-        {
-            OnPlayerAttackInput?.Invoke();
-        }
->>>>>>> develop
     }
 }

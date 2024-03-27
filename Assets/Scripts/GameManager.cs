@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         if (selectedPlayerObject != null)
         {
-           // selectedPlayerObject.SetActive(false);
+           selectedPlayerObject.SetActive(false);
         }
         selectedPlayerObject = playerObject;
         selectedPlayerObject.SetActive(true);
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             OnPlayerObjectChanged();
         }
 
-        Debug.Log(selectedPlayerObject + "°¡ ÇÃ·¹ÀÌ¾î·Î ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+        Debug.Log(selectedPlayerObject + "ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
     }
 
     public IPlayerController GetPlayerController()

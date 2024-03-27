@@ -43,7 +43,7 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
         }
     }
 
-    public void ChangeWalkState()
+    public void ChangeWalkState(Vector3 movement)
     {
         if (animator != null)
         {

@@ -13,19 +13,20 @@ public class VianPlayerWalkState : State<VianPlayerController>
         this.animator = animator;
     }
 
-    Vector3 movement;
 
     public override void Enter(VianPlayerController entity)
     {
         animator.SetBool("IsWalking", true);
+
+        animator.SetFloat("XDir", entity.moveDirection.x);
+        animator.SetFloat("YDir", entity.moveDirection.z);
     }
 
     public override void Execute(VianPlayerController entity)
     {
-        movement.x = animator.GetFloat("XDir");
-        movement.z = animator.GetFloat("YDir");
 
-        entity.transform.Translate(movement * entity.speed * Time.deltaTime);
+
+        entity.transform.Translate(entity.moveDirection * entity.speed * Time.deltaTime);
 
     }
 

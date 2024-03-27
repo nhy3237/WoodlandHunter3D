@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class VianPlayerController : MonoBehaviour
+public class VianPlayerController : MonoBehaviour, IPlayerController
 {
 
     [Header("플레이어 상태 기계")]
@@ -12,8 +13,15 @@ public class VianPlayerController : MonoBehaviour
     private ParticleSystem meleeAttackParticleSystem;
     //public GameObject arrowPrefab;
     [SerializeField] public Rigidbody rigid;
-    [SerializeField] public Animator animator;
+    private Animator animator;
     //[SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
+
+    private VianPlayerIdleState idleState;
+    private VianPlayerWalkState walkState;
+    private VianPlayerJumpState jumpState;
+    private VianPlayerMeleeAttackState meleeAttackState;
+    private VianPlayerRangedAttackReadyState rangedAttackReadyState;
+    private VianPlayerRangedAttackState rangedAttackState;
 
     public float jumpPower = 2;
     public bool IsJumping = false;
@@ -25,6 +33,7 @@ public class VianPlayerController : MonoBehaviour
 
     private Vector3 originPos;
 
+   
 
     int hp = 100;
 
@@ -45,14 +54,19 @@ public class VianPlayerController : MonoBehaviour
     {
         originPos = transform.position;
         //collisionWithFloor.OnCollision += FloorCollisionHandler;
+        animator = transform.GetComponent<Animator>();
 
         stateMachine = new StateMachine<VianPlayerController>();
-        stateMachine.Setup(this, new VianPlayerIdleState(animator));
+        idleState = new VianPlayerIdleState(animator);
+        walkState = new VianPlayerWalkState(animator);
+        jumpState = new VianPlayerJumpState(animator);
+        meleeAttackState = new VianPlayerMeleeAttackState(animator);
+        stateMachine.Setup(this, idleState);
 
         meleeAttackParticleSystem = meleeAttackParticleObject.GetComponent<ParticleSystem>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         stateMachine.Execute();
 
@@ -70,6 +84,40 @@ public class VianPlayerController : MonoBehaviour
         }
 
     }
+
+    public void ChangeIdleState()
+    {
+        if (animator != null)
+        {
+            stateMachine.ChangeState(idleState);
+        }
+    }
+
+    public void ChangeWalkState(Vector3 movement)
+    {
+        moveDirection = movement;
+        if (animator != null)
+        {
+            stateMachine.ChangeState(walkState);
+        }
+    }
+
+    public void ChangeJumpState()
+    {
+        if (animator != null)
+        {
+            stateMachine.ChangeState(jumpState);
+        }
+    }
+
+    public void ChangeAttackState()
+    {
+        if (animator != null)
+        {
+            stateMachine.ChangeState(meleeAttackState);
+        }
+    }
+
 
     IEnumerator PlayPaticle()
     {

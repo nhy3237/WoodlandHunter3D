@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0014785795, g: 0.0013591028, b: 0.0012890887, a: 1}
+  m_IndirectSpecularColor: {r: 0.0014835797, g: 0.0013570454, b: 0.0012931881, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6342,10 +6342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -11495,11 +11495,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7726093460542538094, guid: e4a6c0d993a6c7241a91fb2801dac889, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7726093460542538094, guid: e4a6c0d993a6c7241a91fb2801dac889, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7726093460542538094, guid: e4a6c0d993a6c7241a91fb2801dac889, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15184,11 +15184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4958214147281542290, guid: a4a6f9608b9ddb24ebaab5088b72dbeb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 4958214147281542290, guid: a4a6f9608b9ddb24ebaab5088b72dbeb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 40
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4958214147281542290, guid: a4a6f9608b9ddb24ebaab5088b72dbeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

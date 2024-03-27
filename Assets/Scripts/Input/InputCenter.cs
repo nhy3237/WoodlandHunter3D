@@ -4,72 +4,50 @@ using UnityEngine;
 
 public class InputCenter : MonoBehaviour
 {
-    [SerializeField] public VianPlayerController vianPlayerController;
-    [SerializeField] public InputHandler inputHandler;
+    [SerializeField]
+    private PlayerType selectedPlayerType;
+    [SerializeField]
+    private InputHandler inputHandler;
 
-    private void Start()
+    private IPlayerController playerController;
+
+    void Start()
     {
+        GameManager.instance.OnPlayerObjectChanged += UpdatePlayer;
+
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
-        inputHandler.OnPlayerRunInput += ChangeRunState;
+        inputHandler.OnPlayerAttackInput += ChangeAttackState;
+    }
 
-        inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
-        inputHandler.OnPlayerRangedAttackReadyInput += ChangeRangedAttackReadyState;
-        inputHandler.OnPlayerRangedAttackInput += ChangeRangedAttackState;
+    void OnDestroy()
+    {
+        GameManager.instance.OnPlayerObjectChanged -= UpdatePlayer;
+    }
+
+    private void UpdatePlayer()
+    {
+        playerController = GameManager.instance.GetPlayerController();
     }
 
     void ChangeIdleState()
     {
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerIdleState(vianPlayerController.animator));
+        playerController?.ChangeIdleState();
     }
 
     void ChangeWalkState()
     {
-        vianPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
-        vianPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
-
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerWalkState(vianPlayerController.animator));
+        playerController?.ChangeWalkState(inputHandler.GetMovement());
     }
 
     void ChangeJumpState()
     {
-
-        if (!vianPlayerController.ISJUMPING)
-        {
-            Debug.Log("jump");
-            vianPlayerController.ISJUMPING = true;
-            vianPlayerController.stateMachine.ChangeState(new VianPlayerJumpState(vianPlayerController.animator));
-
-        }
-
+        playerController?.ChangeJumpState();
     }
 
-    void ChangeRunState()
+    void ChangeAttackState()
     {
-        vianPlayerController.animator.SetFloat("XDir", inputHandler.GetMovement().x);
-        vianPlayerController.animator.SetFloat("YDir", inputHandler.GetMovement().y);
-
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerRunState(vianPlayerController.animator));
+        playerController?.ChangeAttackState();
     }
-
-    void ChangeMeleeAttackState()
-    {
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerMeleeAttackState(vianPlayerController.animator));
-
-    }
-
-    void ChangeRangedAttackReadyState()
-    {
-        if(!vianPlayerController.animator.GetBool("IsRangedAttackReady"))
-            vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackReadyState(vianPlayerController.animator));
-
-    }
-
-    void ChangeRangedAttackState()
-    {
-        vianPlayerController.stateMachine.ChangeState(new VianPlayerRangedAttackState(vianPlayerController.animator));
-
-    }
-
 }
