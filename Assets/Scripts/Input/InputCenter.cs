@@ -8,12 +8,33 @@ public class InputCenter : MonoBehaviour
     private PlayerType selectedPlayerType;
     [SerializeField]
     private InputHandler inputHandler;
+    [SerializeField]
+    private GameObject[] playerObjects;
 
     private IPlayerController playerController;
 
+    private GameObject player;
+
     void Start()
-    {
-        GameManager.instance.OnPlayerObjectChanged += UpdatePlayer;
+    { 
+        if(GameManager.instance.GetPlayerTag() != null)
+        {
+            foreach (GameObject playerObject in playerObjects)
+            {
+                if (playerObject.transform.CompareTag(GameManager.instance.GetPlayerTag()))
+                {
+                    player = Instantiate(playerObject);
+                }
+            }
+        }
+        else // test
+        {
+            player = Instantiate(playerObjects[0]);
+        }
+
+        player.transform.position = new Vector3(0, 0, 0);
+
+        playerController = player.GetComponentInChildren<IPlayerController>();
 
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
@@ -23,12 +44,6 @@ public class InputCenter : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.instance.OnPlayerObjectChanged -= UpdatePlayer;
-    }
-
-    private void UpdatePlayer()
-    {
-        playerController = GameManager.instance.GetPlayerController();
     }
 
     void ChangeIdleState()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerTypeSelector : MonoBehaviour
 {
@@ -25,5 +26,10 @@ public class PlayerTypeSelector : MonoBehaviour
     public void SelectVian()
     {
         GameManager.instance.SetPlayerType(VianPlayer);
+    }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene("01.Village");
     }
 }

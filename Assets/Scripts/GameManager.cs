@@ -11,11 +11,14 @@ public class GameManager : MonoBehaviour
     private GameObject selectedPlayerObject;
     private IPlayerController playerController;
 
+    private string selectedPlayerTag;
+
     void Awake()
     {
         if(instance == null)
         {
             instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -25,15 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject playerObject in playerObjects)
-        {
-            if (playerObject.activeSelf)
-            {
-                SetPlayerType(playerObject);
-                break;
-            }
-        }
+        
     }
 
     public void SetPlayerType(GameObject playerObject)
@@ -45,18 +40,23 @@ public class GameManager : MonoBehaviour
         selectedPlayerObject = playerObject;
         selectedPlayerObject.SetActive(true);
 
-        playerController = selectedPlayerObject.GetComponentInChildren<IPlayerController>();
+        selectedPlayerTag = selectedPlayerObject.tag;
 
         if(OnPlayerObjectChanged != null)
         {
             OnPlayerObjectChanged();
         }
 
-        Debug.Log(selectedPlayerObject + "�� �÷��̾�� ���õǾ����ϴ�.");
+        Debug.Log(selectedPlayerObject + "SELECT!!!!");
     }
 
     public IPlayerController GetPlayerController()
     {
         return playerController;
+    }
+
+    public string GetPlayerTag()
+    {
+        return selectedPlayerTag;
     }
 }

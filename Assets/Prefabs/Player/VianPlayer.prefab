@@ -23888,11 +23888,11 @@ GameObject:
   - component: {fileID: 8026342306078218528}
   m_Layer: 0
   m_Name: VianPlayer
-  m_TagString: Untagged
+  m_TagString: VianPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8026342306078218530
 Transform:
   m_ObjectHideFlags: 0
