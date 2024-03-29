@@ -5,36 +5,16 @@ using UnityEngine;
 public class InputCenter : MonoBehaviour
 {
     [SerializeField]
-    private PlayerType selectedPlayerType;
-    [SerializeField]
     private InputHandler inputHandler;
+
     [SerializeField]
-    private GameObject[] playerObjects;
+    private DataManager dataManager;
 
     private IPlayerController playerController;
 
-    private GameObject player;
-
     void Start()
     { 
-        if(GameManager.instance.GetPlayerTag() != null)
-        {
-            foreach (GameObject playerObject in playerObjects)
-            {
-                if (playerObject.transform.CompareTag(GameManager.instance.GetPlayerTag()))
-                {
-                    player = Instantiate(playerObject);
-                }
-            }
-        }
-        else // test
-        {
-            player = Instantiate(playerObjects[0]);
-        }
-
-        player.transform.position = new Vector3(0, 0, 0);
-
-        playerController = player.GetComponentInChildren<IPlayerController>();
+        playerController = dataManager.GetPlayerObject().GetComponentInChildren<IPlayerController>();
 
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
