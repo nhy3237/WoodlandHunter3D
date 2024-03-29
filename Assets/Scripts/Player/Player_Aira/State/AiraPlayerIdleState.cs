@@ -15,6 +15,7 @@ public class AiraPlayerIdleState : State<AiraPlayerController>
     {
         //entity.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
         animator.SetBool("IsWalking", false);
+        entity.attackParticle.SetActive(false);
     }
 
     public override void Execute(AiraPlayerController entity)

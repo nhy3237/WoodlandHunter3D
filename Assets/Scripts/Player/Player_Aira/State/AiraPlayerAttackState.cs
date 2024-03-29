@@ -19,6 +19,7 @@ public class AiraPlayerAttackState : State<AiraPlayerController>
     public override void Execute(AiraPlayerController entity)
     {
         animator.SetTrigger("Attack");
+        entity.attackParticle.SetActive(true);
     }
 
     public override void Exit(AiraPlayerController entity)

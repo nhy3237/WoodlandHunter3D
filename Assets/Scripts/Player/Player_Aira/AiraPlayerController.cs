@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class AiraPlayerController : MonoBehaviour, IPlayerController
 {
-    [Header("move Speed")]
+    [Header("Move Speed")]
     public float moveSpeed = 1f;
+
+    [Header("Attack Paticle")]
+    public GameObject attackParticle;
 
     private StateMachine<AiraPlayerController> stateMachine;
     private AiraPlayerIdleState idleState;
