@@ -10,6 +10,13 @@ public class DataManager : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public GameObject GetPlayerObject()
+    {
+        if (playerObject == null)
+        {
         if (GameManager.instance.GetPlayerTag() != null)
         {
             foreach (GameObject playerObject in playerObjects)
@@ -26,10 +33,8 @@ public class DataManager : MonoBehaviour
         }
 
         this.playerObject.transform.position = new Vector3(0, 0, 0);
-    }
+        }
 
-    public GameObject GetPlayerObject()
-    {
         return playerObject;
     }
 }

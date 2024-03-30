@@ -24,6 +24,6 @@ public class AiraPlayerAttackState : State<AiraPlayerController>
 
     public override void Exit(AiraPlayerController entity)
     {
-
+        //entity.attackParticle.SetActive(false);
     }
 }
