@@ -7,17 +7,16 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
 {
 
     [Header("플레이어 상태 기계")]
-    //[SerializeField] public ArcherPlayerStateMachine archerPlayerStateMachine;
-    public StateMachine<VianPlayerController> stateMachine;
+
     public GameObject meleeAttackParticleObject;
+
+    private StateMachine<VianPlayerController> stateMachine;
     private ParticleSystem meleeAttackParticleSystem;
-    //public GameObject arrowPrefab;
-    [SerializeField] public Rigidbody rigid;
     private Animator animator;
-    //[SerializeField] private NotifyCollisionToPlayer collisionWithFloor;
 
     private VianPlayerIdleState idleState;
     private VianPlayerWalkState walkState;
+    private VianPlayerRunState runState;
     private VianPlayerJumpState jumpState;
     private VianPlayerMeleeAttackState meleeAttackState;
     private VianPlayerRangedAttackReadyState rangedAttackReadyState;
@@ -28,7 +27,7 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
 
 
     public Vector3 moveDirection;
-    public float speed = 1f;
+    public float speed = 0.5f;
     public float rotationSpeed = 0.5f; // 회전 속도
 
     private Vector3 originPos;
@@ -53,14 +52,16 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
     void Start()
     {
         originPos = transform.position;
-        //collisionWithFloor.OnCollision += FloorCollisionHandler;
         animator = transform.GetComponent<Animator>();
 
         stateMachine = new StateMachine<VianPlayerController>();
+
         idleState = new VianPlayerIdleState(animator);
         walkState = new VianPlayerWalkState(animator);
+        runState = new VianPlayerRunState(animator);
         jumpState = new VianPlayerJumpState(animator);
         meleeAttackState = new VianPlayerMeleeAttackState(animator);
+
         stateMachine.Setup(this, idleState);
 
         meleeAttackParticleSystem = meleeAttackParticleObject.GetComponent<ParticleSystem>();
@@ -74,7 +75,6 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         {
             StartCoroutine(PlayPaticle());
         }
-
 
         if(animator.GetBool("IsRangedAttacking"))
         {
@@ -102,6 +102,14 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         }
     }
 
+    public void ChangeRunState()
+    {
+        if (animator != null)
+        {
+            stateMachine.ChangeState(runState);
+        }
+    }
+
     public void ChangeJumpState()
     {
         if (animator != null)
@@ -112,7 +120,12 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
 
     public void ChangeAttackState()
     {
-        if (animator != null)
+       
+    }
+
+    public void ChangeMeleeAttackState()
+    {
+        if (animator != null && !animator.GetBool("IsMeleeAttacking"))
         {
             stateMachine.ChangeState(meleeAttackState);
         }
@@ -123,11 +136,6 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
     {
         yield return new WaitForSeconds(0.6f);
         meleeAttackParticleSystem.Play();
-    }
-
-    public void MoveInput()
-    {
-
     }
 
     public void ResetPosition()

@@ -19,7 +19,6 @@ public class VianPlayerWalkState : State<VianPlayerController>
         animator.SetBool("IsWalking", true);
 
         animator.SetFloat("XDir", entity.moveDirection.x);
-        animator.SetFloat("YDir", entity.moveDirection.z);
     }
 
     public override void Execute(VianPlayerController entity)

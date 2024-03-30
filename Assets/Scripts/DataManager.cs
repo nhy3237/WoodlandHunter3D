@@ -8,7 +8,7 @@ public class DataManager : MonoBehaviour
     private GameObject[] playerObjects;
     private GameObject playerObject;
 
-    void Start()
+    void Awake()
     {
         if (GameManager.instance.GetPlayerTag() != null)
         {
@@ -22,10 +22,10 @@ public class DataManager : MonoBehaviour
         }
         else // test
         {
-            this.playerObject = Instantiate(playerObjects[0]);
+            playerObject = Instantiate(playerObjects[0]);
         }
 
-        this.playerObject.transform.position = new Vector3(0, 0, 0);
+        playerObject.transform.position = new Vector3(0, 0, 0);
     }
 
     public GameObject GetPlayerObject()

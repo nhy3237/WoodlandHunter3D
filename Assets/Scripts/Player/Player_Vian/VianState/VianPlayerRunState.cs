@@ -11,7 +11,6 @@ public class VianPlayerRunState : State<VianPlayerController>
         this.animator = animator;
     }
 
-    Vector3 movement;
     float runSpeed;
 
     public override void Enter(VianPlayerController entity)
@@ -21,11 +20,9 @@ public class VianPlayerRunState : State<VianPlayerController>
 
     public override void Execute(VianPlayerController entity)
     {
-        movement.x = animator.GetFloat("XDir");
-        movement.z = animator.GetFloat("YDir");
 
         runSpeed = entity.speed * 3;
-        entity.transform.Translate(movement * runSpeed * Time.deltaTime);
+        entity.transform.Translate(entity.moveDirection * runSpeed * Time.deltaTime);
 
     }
 

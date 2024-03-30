@@ -18800,8 +18800,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8026342306008084069}
   m_LocalRotation: {x: 0.6309308, y: 0.53800863, z: -0.3192592, w: 0.4588537}
-  m_LocalPosition: {x: -0.93, y: 0.255, z: 0.654}
-  m_LocalScale: {x: 0.30000007, y: 0.3, z: 0.29999998}
+  m_LocalPosition: {x: -0.84, y: 0.255, z: 0.654}
+  m_LocalScale: {x: 0.33000013, y: 0.33000013, z: 0.33}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8026342306213057595}
@@ -23946,7 +23946,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackParticleObject: {fileID: 8026342306008084069}
-  rigid: {fileID: 0}
   jumpPower: 2
   IsJumping: 0
   moveDirection: {x: 0, y: 0, z: 0}
