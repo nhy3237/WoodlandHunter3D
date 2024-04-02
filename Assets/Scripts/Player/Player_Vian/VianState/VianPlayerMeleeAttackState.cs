@@ -15,8 +15,13 @@ public class VianPlayerMeleeAttackState : State<VianPlayerController>
 
     public override void Enter(VianPlayerController entity)
     {
-        animator.SetTrigger("MeleeAttackStart");
-        //animator.SetBool("IsMeleeAttacking", true);
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("MeleeAttack")
+           && !animator.GetNextAnimatorStateInfo(0).IsName("MeleeAttack"))
+        {
+            animator.SetTrigger("MeleeAttackStart");
+            animator.SetBool("IsMeleeAttacking", true);
+
+        }
         Debug.Log("IsMeleeAttacking Start");
 
     }
@@ -28,7 +33,7 @@ public class VianPlayerMeleeAttackState : State<VianPlayerController>
 
     public override void Exit(VianPlayerController entity)
     {
-        //animator.SetBool("IsMeleeAttacking", false);
+        animator.SetBool("IsMeleeAttacking", false);
         Debug.Log("IsMeleeAttacking Exit");
     }
 

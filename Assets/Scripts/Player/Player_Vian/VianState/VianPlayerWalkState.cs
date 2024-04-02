@@ -18,14 +18,14 @@ public class VianPlayerWalkState : State<VianPlayerController>
     {
         animator.SetBool("IsWalking", true);
 
-        animator.SetFloat("XDir", entity.moveDirection.x);
     }
 
     public override void Execute(VianPlayerController entity)
     {
 
-
         entity.transform.Translate(entity.moveDirection * entity.speed * Time.deltaTime);
+        animator.SetFloat("XDir", entity.moveDirection.x);
+
 
     }
 

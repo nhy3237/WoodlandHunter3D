@@ -6,6 +6,7 @@ public class VianPlayerJumpState : State<VianPlayerController>
 {
 
     private Animator animator;
+    private bool isJumping = false;
 
     public VianPlayerJumpState(Animator animator)
     {
@@ -15,7 +16,12 @@ public class VianPlayerJumpState : State<VianPlayerController>
 
     public override void Enter(VianPlayerController entity)
     {
-        animator.SetTrigger("Jump");
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Jump")
+            && !animator.GetNextAnimatorStateInfo(0).IsName("Jump"))
+        {
+            animator.SetTrigger("Jump");
+        }
+        
     }
 
     public override void Execute(VianPlayerController entity)
