@@ -8,8 +8,15 @@ public class DataManager : MonoBehaviour
     private GameObject[] playerObjects;
     private GameObject playerObject;
 
-    void Awake()
+    void Start()
     {
+        
+    }
+
+    public GameObject GetPlayerObject()
+    {
+        if (playerObject == null)
+        {
         if (GameManager.instance.GetPlayerTag() != null)
         {
             foreach (GameObject playerObject in playerObjects)
@@ -22,14 +29,12 @@ public class DataManager : MonoBehaviour
         }
         else // test
         {
-            playerObject = Instantiate(playerObjects[0]);
+            this.playerObject = Instantiate(playerObjects[0]);
         }
 
-        playerObject.transform.position = new Vector3(0, 0, 0);
-    }
+        this.playerObject.transform.position = new Vector3(0, 0, 0);
+        }
 
-    public GameObject GetPlayerObject()
-    {
         return playerObject;
     }
 }

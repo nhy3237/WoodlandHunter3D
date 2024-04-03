@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1917324757481911327}
   m_Father: {fileID: 0}
@@ -43,6 +44,10 @@ PrefabInstance:
       value: wall_01_LP
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
@@ -55,6 +60,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
@@ -65,14 +74,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -90,11 +91,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed81ebf7b944447459cd00acb150a391, type: 2}
+    - target: {fileID: 6400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
 --- !u!4 &1917324757481911327 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 42da544c538d54d28b4e90c7a33d88c9, type: 3}
   m_PrefabInstance: {fileID: 1917324757481778847}
   m_PrefabAsset: {fileID: 0}
