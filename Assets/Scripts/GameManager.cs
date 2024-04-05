@@ -33,12 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerType(GameObject playerObject)
     {
-        if (selectedPlayerObject != null)
-        {
-           selectedPlayerObject.SetActive(false);
-        }
         selectedPlayerObject = playerObject;
-        selectedPlayerObject.SetActive(true);
 
         selectedPlayerTag = selectedPlayerObject.tag;
 

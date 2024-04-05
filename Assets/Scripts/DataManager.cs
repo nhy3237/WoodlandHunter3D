@@ -17,22 +17,22 @@ public class DataManager : MonoBehaviour
     {
         if (playerObject == null)
         {
-        if (GameManager.instance.GetPlayerTag() != null)
-        {
-            foreach (GameObject playerObject in playerObjects)
+            if (GameManager.instance.GetPlayerTag() != null)
             {
-                if (playerObject.transform.CompareTag(GameManager.instance.GetPlayerTag()))
+                foreach (GameObject playerObject in playerObjects)
                 {
-                    this.playerObject = Instantiate(playerObject);
+                    if (playerObject.transform.CompareTag(GameManager.instance.GetPlayerTag()))
+                    {
+                        this.playerObject = Instantiate(playerObject);
+                    }
                 }
             }
-        }
-        else // test
-        {
-            this.playerObject = Instantiate(playerObjects[0]);
-        }
+            else // test
+            {
+                this.playerObject = Instantiate(playerObjects[0]);
+            }
 
-        this.playerObject.transform.position = new Vector3(0, 0, 0);
+            this.playerObject.transform.position = new Vector3(0, 0, 0);
         }
 
         return playerObject;
