@@ -13,13 +13,16 @@ public class AiraPlayerAttackState : State<AiraPlayerController>
 
     public override void Enter(AiraPlayerController entity)
     {
-
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
+            && !animator.GetNextAnimatorStateInfo(0).IsName("Attack"))
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 
     public override void Execute(AiraPlayerController entity)
     {
-        animator.SetTrigger("Attack");
-        entity.attackParticle.SetActive(true);
+        //entity.attackParticle.SetActive(true);
     }
 
     public override void Exit(AiraPlayerController entity)
