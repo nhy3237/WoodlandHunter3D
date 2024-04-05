@@ -14,7 +14,7 @@ public class StartScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ActiveStartText());
+        StartCoroutine(WaitTitleStart());
     }
 
     // Update is called once per frame
@@ -48,6 +48,13 @@ public class StartScene : MonoBehaviour
         yield return new WaitForSeconds(3f);
         startTitle.SetActive(false);
 
+    }
+
+    IEnumerator WaitTitleStart()
+    {
+        yield return new WaitForSeconds(2f);
+        startTitle.SetActive(true);
+        StartCoroutine(ActiveStartText());
     }
 
 }
