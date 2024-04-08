@@ -22,6 +22,9 @@ public class InputCenter : MonoBehaviour
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerAttackInput += ChangeAttackState;
         inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
+
+        inputHandler.OnPlayerRangedAttackReadyInput += ChangeRangedAttackReadyState;
+        inputHandler.OnPlayerRangedAttackInput += ChangeRangedAttackState;
     }
 
     void OnDestroy()
@@ -56,5 +59,15 @@ public class InputCenter : MonoBehaviour
     void ChangeMeleeAttackState()
     {
         playerController?.ChangeMeleeAttackState();
+    }
+
+    void ChangeRangedAttackReadyState()
+    {
+        playerController?.ChangeRangedAttackReadyState();
+    }
+
+    void ChangeRangedAttackState()
+    {
+        playerController?.ChangeRangedAttackState();
     }
 }

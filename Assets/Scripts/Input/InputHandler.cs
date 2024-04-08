@@ -72,11 +72,12 @@ public class InputHandler : MonoBehaviour
             OnPlayerRangedAttackReadyInput?.Invoke();
         }
 
-        if (isMouseButtonDown && !Input.GetMouseButton(0))
+        else if (isMouseButtonDown && !Input.GetMouseButton(0))
         {
 
             isMouseButtonDown = false;
             Debug.Log("Ranged Attack ");
+            
             OnPlayerRangedAttackInput?.Invoke();
         }
 

@@ -8,4 +8,6 @@ public interface IPlayerController
     void ChangeJumpState();
     void ChangeAttackState();
     void ChangeMeleeAttackState();
+    void ChangeRangedAttackReadyState();
+    void ChangeRangedAttackState();
 }

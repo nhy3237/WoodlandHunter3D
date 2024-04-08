@@ -61,6 +61,8 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         runState = new VianPlayerRunState(animator);
         jumpState = new VianPlayerJumpState(animator);
         meleeAttackState = new VianPlayerMeleeAttackState(animator);
+        rangedAttackReadyState = new VianPlayerRangedAttackReadyState(animator);
+        rangedAttackState = new VianPlayerRangedAttackState(animator);
 
         stateMachine.Setup(this, idleState);
 
@@ -129,6 +131,23 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         {
             stateMachine.ChangeState(meleeAttackState);
         }
+    }
+
+    public void ChangeRangedAttackReadyState()
+    {
+        if(animator != null)
+        {
+            stateMachine.ChangeState(rangedAttackReadyState);
+        }
+    }
+
+    public void ChangeRangedAttackState()
+    {
+        if (animator != null)
+        {
+            stateMachine.ChangeState(rangedAttackState);
+        }
+
     }
 
 

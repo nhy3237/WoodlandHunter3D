@@ -22,19 +22,15 @@ public class VianPlayerMeleeAttackState : State<VianPlayerController>
             animator.SetBool("IsMeleeAttacking", true);
 
         }
-        Debug.Log("IsMeleeAttacking Start");
-
     }
 
     public override void Execute(VianPlayerController entity)
     {
-        Debug.Log("IsMeleeAttacking...");
     }
 
     public override void Exit(VianPlayerController entity)
     {
         animator.SetBool("IsMeleeAttacking", false);
-        Debug.Log("IsMeleeAttacking Exit");
     }
 
 }
