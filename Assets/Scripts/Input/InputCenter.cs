@@ -11,17 +11,18 @@ public class InputCenter : MonoBehaviour
     private DataManager dataManager;
 
     private IPlayerController playerController;
+    private CameraController cameraController;
 
     void Start()
     { 
         playerController = dataManager.GetPlayerObject().GetComponentInChildren<IPlayerController>();
+        cameraController = dataManager.GetPlayerObject().GetComponentInChildren<CameraController>();
 
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
-        inputHandler.OnPlayerRunInput += ChangeRunState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerAttackInput += ChangeAttackState;
-        inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
+        inputHandler.OnCameraRotateInput += ChangeCameraRotate;
     }
 
     void OnDestroy()
@@ -38,11 +39,6 @@ public class InputCenter : MonoBehaviour
         playerController?.ChangeWalkState(inputHandler.GetMovement());
     }
 
-    void ChangeRunState()
-    {
-        playerController?.ChangeRunState();
-    }
-
     void ChangeJumpState()
     {
         playerController?.ChangeJumpState();
@@ -53,8 +49,8 @@ public class InputCenter : MonoBehaviour
         playerController?.ChangeAttackState();
     }
 
-    void ChangeMeleeAttackState()
+    void ChangeCameraRotate()
     {
-        playerController?.ChangeMeleeAttackState();
+        cameraController?.ChangeCameraRotate(inputHandler.GetMouseX());
     }
 }

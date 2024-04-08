@@ -16,9 +16,12 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     private AiraPlayerJumpState jumpState;
     private AiraPlayerAttackState attackState;
     private Animator animator;
+    private Transform cameraTransform;
 
     void Start()
     {
+        cameraTransform = Camera.main.transform;
+
         animator = transform.parent.GetComponent<Animator>();
 
         stateMachine = new StateMachine<AiraPlayerController>();
@@ -27,11 +30,24 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
         jumpState = new AiraPlayerJumpState(animator);
         attackState = new AiraPlayerAttackState(animator);
         stateMachine.Setup(this, idleState);
+
+        
     }
 
     private void Update()
     {
-        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        Vector2 inputDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (inputDir != Vector2.zero)
+        {
+            float inputAngle = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            float rotation = inputAngle + cameraTransform.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+
+            Vector3 moveDirection = Quaternion.Euler(0f, rotation, 0f) * Vector3.forward;
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
             stateMachine.ChangeState(jumpState);
         }
