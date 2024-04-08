@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float cameraSpeed = 5.0f;
+    public float horizontalRotationSpeed;
+    public float playerDistance = 3f;
+    public float rotationSensitivity = 3f;
+    public Transform player;
 
-    public GameObject player;
+    private float smoothRotationTime = 0.12f;
+    private float cameraHeight = 1.7f;
+    private Vector3 targetRotation;
+    private Vector3 currentVelocity;
 
-    private void FixedUpdate()
+
+    public void ChangeCameraRotate(float mouseX)
     {
-        Vector3 dir = player.transform.position - this.transform.position;
-        Vector3 moveVector = new Vector3(dir.x * cameraSpeed * Time.deltaTime, dir.y * cameraSpeed * Time.deltaTime, 0.0f);
-        this.transform.Translate(moveVector);
+        horizontalRotationSpeed = horizontalRotationSpeed + mouseX * rotationSensitivity;
+        targetRotation = Vector3.SmoothDamp(targetRotation, new Vector3(0f, horizontalRotationSpeed), ref currentVelocity, smoothRotationTime);
+        this.transform.eulerAngles = targetRotation;
+
+        Vector3 playerEulerAngles = new Vector3(0f, targetRotation.y, 0f);
+        player.rotation = Quaternion.Euler(playerEulerAngles);
+
+        transform.position = player.position - transform.forward * playerDistance;
+        transform.position = new Vector3(transform.position.x, cameraHeight, transform.position.z);
     }
 }

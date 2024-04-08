@@ -16,12 +16,21 @@ public class InputHandler : MonoBehaviour
 
     public event PlayerInputHandle OnPlayerAttackInput;
 
-    Vector3 movement;
+    public event PlayerInputHandle OnCameraRotateInput;
+
     public bool isMouseButtonDown = false;
+
+    private Vector3 movement;
+    private float mouseX;
 
     public Vector3 GetMovement()
     {
         return movement;
+    }
+
+    public float GetMouseX()
+    {
+        return mouseX;
     }
 
     private void Update()
@@ -74,11 +83,16 @@ public class InputHandler : MonoBehaviour
 
         if (isMouseButtonDown && !Input.GetMouseButton(0))
         {
-
             isMouseButtonDown = false;
             Debug.Log("Ranged Attack ");
             OnPlayerRangedAttackInput?.Invoke();
         }
 
+        mouseX = Input.GetAxis("Mouse X");
+
+        if (mouseX != 0)
+        {
+            OnCameraRotateInput?.Invoke();
+        }
     }
 }

@@ -13,7 +13,8 @@ public class AiraPlayerAttackState : State<AiraPlayerController>
 
     public override void Enter(AiraPlayerController entity)
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
+        if (!
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")
             && !animator.GetNextAnimatorStateInfo(0).IsName("Attack"))
         {
             animator.SetTrigger("Attack");
