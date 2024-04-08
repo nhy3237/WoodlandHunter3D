@@ -54,6 +54,16 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
         }
     }
 
+    public void ChangeRunState()
+    {
+
+    }
+
+    public void ChangeMeleeAttackState()
+    {
+
+    }
+
     public void ChangeJumpState()
     {
         if (animator != null)

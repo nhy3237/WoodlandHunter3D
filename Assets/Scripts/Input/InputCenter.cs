@@ -17,9 +17,11 @@ public class InputCenter : MonoBehaviour
         playerController = dataManager.GetPlayerObject().GetComponentInChildren<IPlayerController>();
 
         inputHandler.OnPlayerWalkInput += ChangeWalkState;
+        inputHandler.OnPlayerRunInput += ChangeRunState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerAttackInput += ChangeAttackState;
+        inputHandler.OnPlayerMeleeAttackInput += ChangeMeleeAttackState;
     }
 
     void OnDestroy()
@@ -36,6 +38,11 @@ public class InputCenter : MonoBehaviour
         playerController?.ChangeWalkState(inputHandler.GetMovement());
     }
 
+    void ChangeRunState()
+    {
+        playerController?.ChangeRunState();
+    }
+
     void ChangeJumpState()
     {
         playerController?.ChangeJumpState();
@@ -44,5 +51,10 @@ public class InputCenter : MonoBehaviour
     void ChangeAttackState()
     {
         playerController?.ChangeAttackState();
+    }
+
+    void ChangeMeleeAttackState()
+    {
+        playerController?.ChangeMeleeAttackState();
     }
 }
