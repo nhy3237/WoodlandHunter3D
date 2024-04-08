@@ -78,12 +78,7 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
             StartCoroutine(PlayPaticle());
         }
 
-        if(animator.GetBool("IsRangedAttacking"))
-        {
-            //GameObject t_arrow = Instantiate(arrowPrefab);
-            //t_arrow.GetComponent<Rigidbody>().velocity = m_tfArrow.transform.right * 10f;
-
-        }
+        
 
     }
 

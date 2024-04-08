@@ -6,16 +6,38 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenuButtonController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Input/InputCenter.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" />
-      <File FileName="Assets/Scripts/Input/InputCenter.cs" />
-      <File FileName="Assets/Scripts/IPlayerController.cs" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerWalkState.cs" />
-      <File FileName="Assets/Scripts/Player/FSM/StateMachine.cs" />
-      <File FileName="Assets/Scripts/StartScene.cs" Line="8" Column="49" />
-      <File FileName="Assets/Scripts/StartParticle.cs" />
-      <File FileName="Assets/Scripts/MainMenuButtonController.cs" Line="29" Column="28" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" Line="75" Column="1" />
+      <File FileName="Assets/Scripts/Input/InputCenter.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="80" Column="13" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackReadyState.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="7" Column="29" />
+      <File FileName="Assets/Scripts/Player/FSM/State.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/FSM/StateMachine.cs" Line="22" Column="6" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerMeleeAttackState.cs" Line="21" Column="39" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WoodlandHunter3D">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Input" expanded="True">
+                  <Node name="InputCenter.cs" selected="True" />
+                </Node>
+                <Node name="Player" expanded="True">
+                  <Node name="FSM" expanded="True" />
+                  <Node name="Player_Aira" expanded="True" />
+                  <Node name="Player_Vian" expanded="True">
+                    <Node name="VianState" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
 </Properties>
