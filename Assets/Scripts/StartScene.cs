@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class StartScene : MonoBehaviour
 {
-    [SerializeField] GameObject startText;
-    [SerializeField] Animator startDoorAnimator;
-    [SerializeField] GameObject startTitle;
-    [SerializeField] GameObject startLine;
+    [SerializeField]
+    private GameObject startText;
+    [SerializeField]
+    private Animator startDoorAnimator;
+    [SerializeField]
+    private GameObject startTitle;
+    [SerializeField]
+    private GameObject startLine;
+    [SerializeField]
+    private GameObject menuFirstImage;
+    [SerializeField]
+    private GameObject menuSecondImage;
 
     bool isKeyPressed = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitTitleStart());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!isKeyPressed && Input.anyKeyDown)
@@ -26,6 +32,8 @@ public class StartScene : MonoBehaviour
             StartCoroutine(WaitOpenDoor());
             StartCoroutine(WaitTitleDestory());
             startText.SetActive(false);
+            menuFirstImage.SetActive(true);
+            menuSecondImage.SetActive(true);
             startLine.SetActive(false);
         }
     }

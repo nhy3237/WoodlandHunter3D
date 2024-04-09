@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler 
 {
-    [SerializeField]private GameObject selectMark;
-    
+    [SerializeField]
+    private GameObject selectMark;
+    [SerializeField]
+    private GameObject loadingObject;
+
+    void Start()
+    {
+        
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -21,7 +28,7 @@ public class MainMenuButtonController : MonoBehaviour, IPointerEnterHandler, IPo
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("00.PlayerSelect");
+        loadingObject.SetActive(true);
     }
 
     public void Quit()

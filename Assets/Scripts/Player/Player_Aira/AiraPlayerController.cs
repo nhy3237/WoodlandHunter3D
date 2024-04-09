@@ -13,10 +13,13 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     private StateMachine<AiraPlayerController> stateMachine;
     private AiraPlayerIdleState idleState;
     private AiraPlayerWalkState walkState;
+    private AiraPlayerRunState runState;
     private AiraPlayerJumpState jumpState;
     private AiraPlayerAttackState attackState;
     private Animator animator;
     private Transform cameraTransform;
+
+    public Vector3 movement;
 
     void Start()
     {
@@ -26,12 +29,11 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
 
         stateMachine = new StateMachine<AiraPlayerController>();
         idleState = new AiraPlayerIdleState(animator);
-        walkState = new AiraPlayerWalkState(animator, moveSpeed);
+        walkState = new AiraPlayerWalkState(animator);
+        runState = new AiraPlayerRunState(animator);
         jumpState = new AiraPlayerJumpState(animator);
         attackState = new AiraPlayerAttackState(animator);
         stateMachine.Setup(this, idleState);
-
-        
     }
 
     private void Update()
@@ -66,13 +68,17 @@ public class AiraPlayerController : MonoBehaviour, IPlayerController
     {
         if (animator != null)
         {
+            this.movement = movement;
             stateMachine.ChangeState(walkState);
         }
     }
 
     public void ChangeRunState()
     {
-
+        if(animator != null)
+        {
+            stateMachine.ChangeState(runState);
+        }
     }
 
     public void ChangeMeleeAttackState()

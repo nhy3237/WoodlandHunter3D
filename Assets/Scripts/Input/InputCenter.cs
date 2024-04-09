@@ -6,7 +6,6 @@ public class InputCenter : MonoBehaviour
 {
     [SerializeField]
     private InputHandler inputHandler;
-
     [SerializeField]
     private DataManager dataManager;
 
@@ -18,8 +17,9 @@ public class InputCenter : MonoBehaviour
         playerController = dataManager.GetPlayerObject().GetComponentInChildren<IPlayerController>();
         cameraController = dataManager.GetPlayerObject().GetComponentInChildren<CameraController>();
 
-        inputHandler.OnPlayerWalkInput += ChangeWalkState;
         inputHandler.OnPlayerIdle += ChangeIdleState;
+        inputHandler.OnPlayerWalkInput += ChangeWalkState;
+        inputHandler.OnPlayerRunInput += ChangeRunState;
         inputHandler.OnPlayerJumpInput += ChangeJumpState;
         inputHandler.OnPlayerAttackInput += ChangeAttackState;
         inputHandler.OnCameraRotateInput += ChangeCameraRotate;
@@ -37,6 +37,11 @@ public class InputCenter : MonoBehaviour
     void ChangeWalkState()
     {
         playerController?.ChangeWalkState(inputHandler.GetMovement());
+    }
+
+    void ChangeRunState()
+    {
+        playerController?.ChangeRunState();
     }
 
     void ChangeJumpState()
