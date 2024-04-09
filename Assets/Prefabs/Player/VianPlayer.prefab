@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1176967987
 Transform:
   m_ObjectHideFlags: 0
@@ -24030,6 +24030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackParticleObject: {fileID: 8026342306008084069}
+  arrowPrefab: {fileID: 7744713156549399144, guid: c78d64845f5ce4628abe8beef128e744, type: 3}
+  arrowSpawnPoint: {fileID: 1176967987}
   jumpPower: 2
   IsJumping: 0
   moveDirection: {x: 0, y: 0, z: 0}

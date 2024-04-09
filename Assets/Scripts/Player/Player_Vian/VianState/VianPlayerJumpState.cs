@@ -6,7 +6,6 @@ public class VianPlayerJumpState : State<VianPlayerController>
 {
 
     private Animator animator;
-    private bool isJumping = false;
 
     public VianPlayerJumpState(Animator animator)
     {

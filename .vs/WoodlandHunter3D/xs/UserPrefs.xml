@@ -6,16 +6,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Input/InputCenter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player_Vian/VianArrowShoot.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" Line="75" Column="1" />
-      <File FileName="Assets/Scripts/Input/InputCenter.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/Input/InputHandler.cs" Line="80" Column="13" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackReadyState.cs" Line="20" Column="1" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerRangedAttackState.cs" Line="7" Column="29" />
-      <File FileName="Assets/Scripts/Player/FSM/State.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/FSM/StateMachine.cs" Line="22" Column="6" />
-      <File FileName="Assets/Scripts/Player/Player_Vian/VianState/VianPlayerMeleeAttackState.cs" Line="21" Column="39" NotebookId="1" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianPlayerController.cs" Line="78" Column="27" />
+      <File FileName="Assets/Scripts/Player/Player_Vian/VianArrowShoot.cs" Line="15" Column="6" />
+      <File FileName="Assets/Scripts/StartParticle.cs" Line="17" Column="47" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,9 +18,7 @@
           <Node name="WoodlandHunter3D">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Input" expanded="True">
-                  <Node name="InputCenter.cs" selected="True" />
-                </Node>
+                <Node name="Input" expanded="True" />
                 <Node name="Player" expanded="True">
                   <Node name="FSM" expanded="True" />
                   <Node name="Player_Aira" expanded="True" />

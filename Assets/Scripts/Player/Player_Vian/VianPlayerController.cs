@@ -8,7 +8,12 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
 
     [Header("플레이어 상태 기계")]
 
-    public GameObject meleeAttackParticleObject;
+    [SerializeField]
+    private GameObject meleeAttackParticleObject;
+    [SerializeField]
+    private GameObject arrowPrefab;
+    [SerializeField]
+    private Transform arrowSpawnPoint;
 
     private StateMachine<VianPlayerController> stateMachine;
     private ParticleSystem meleeAttackParticleSystem;
@@ -22,19 +27,14 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
     private VianPlayerRangedAttackReadyState rangedAttackReadyState;
     private VianPlayerRangedAttackState rangedAttackState;
 
+    private Vector3 originPos;
+    private int hp = 100;
+
     public float jumpPower = 2;
     public bool IsJumping = false;
-
-
     public Vector3 moveDirection;
     public float speed = 0.5f;
     public float rotationSpeed = 0.5f; // 회전 속도
-
-    private Vector3 originPos;
-
-   
-
-    int hp = 100;
 
     public int HP
     {
@@ -77,9 +77,6 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         {
             StartCoroutine(PlayPaticle());
         }
-
-        
-
     }
 
     public void ChangeIdleState()
@@ -133,6 +130,7 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         if(animator != null)
         {
             stateMachine.ChangeState(rangedAttackReadyState);
+            CreateArrow();
         }
     }
 
@@ -143,6 +141,11 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
             stateMachine.ChangeState(rangedAttackState);
         }
 
+    }
+
+    private void CreateArrow()
+    {
+        Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
     }
 
 
