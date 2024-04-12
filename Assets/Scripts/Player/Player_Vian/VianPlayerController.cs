@@ -15,6 +15,7 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
     [SerializeField]
     private Transform arrowSpawnPoint;
 
+    private VianArrowShoot arrowShootController;
     private StateMachine<VianPlayerController> stateMachine;
     private ParticleSystem meleeAttackParticleSystem;
     private Animator animator;
@@ -139,13 +140,15 @@ public class VianPlayerController : MonoBehaviour, IPlayerController
         if (animator != null)
         {
             stateMachine.ChangeState(rangedAttackState);
+            arrowShootController.ShootArrow();
         }
 
     }
 
     private void CreateArrow()
     {
-        Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+        arrowShootController = arrow.GetComponent<VianArrowShoot>();
     }
 
 
